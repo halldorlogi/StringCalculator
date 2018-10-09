@@ -10,11 +10,7 @@ function Add(numbers) {
 	if (numbers.includes(",")) {
 
 		var numberArray = numbers.split(",");
-		var total = 0;
-		for (var i = 0; i < numberArray.length; i++) {
-			total += parseInt(numberArray[i]);
-		}
-		return total;
+		return sum(numberArray);
 	}
 	
 	else {
@@ -24,5 +20,11 @@ function Add(numbers) {
 	
 }
 
+	function sum(numberArray) {
+
+		var total = 0;
+		for (var i = 0; i < numberArray.length; i++) {
+		total += parseInt(numberArray[i]);
+	}
 
 module.exports = Add;
