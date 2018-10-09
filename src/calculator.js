@@ -7,9 +7,9 @@ function Add(numbers) {
 		return 0;
 	}
 
-	if (numbers.includes(",")) {
+	if (numbers.includes(",") || numbers.includes("\n")) {
 
-		var numberArray = numbers.split(",");
+		var numberArray = numbers.split(/[,\n]/);
 		return sum(numberArray);
 	}
 	
@@ -24,7 +24,9 @@ function Add(numbers) {
 
 		var total = 0;
 		for (var i = 0; i < numberArray.length; i++) {
-		total += parseInt(numberArray[i]);
+			total += parseInt(numberArray[i]);
+		}
+		return total; 
 	}
 
 module.exports = Add;
