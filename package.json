@@ -1,0 +1,22 @@
+{
+  "name": "stringcalculator",
+  "version": "1.0.0",
+  "description": "tdd_exercise",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/halldorlogi/StringCalculator.git"
+  },
+  "author": "Halldór Logi Hilmarsson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/halldorlogi/StringCalculator/issues"
+  },
+  "homepage": "https://github.com/halldorlogi/StringCalculator#readme",
+  "devDependencies": {
+    "jest": "^23.6.0"
+  }
+}
