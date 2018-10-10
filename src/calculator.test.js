@@ -61,7 +61,7 @@ it("Does not return numbers >= 1000 (two or more numbers)", () => {
 	expect(add("1, 1001, 1002, 4")).toBe(5);
 })
 
-it("Returns the sum and new delimeter", () => {
+it("Should allow a different delimeter and return correct sum", () => {
 	expect(add("//q\n1q2q3")).toBe(6);
 })
 
