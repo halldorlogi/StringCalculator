@@ -10,18 +10,10 @@ function Add(numbers) {
 	if (numbers.includes(",") || numbers.includes("\n")) {
 
 		var numberArray = numbers.split(/[,\n]/);
-		var negativeArray = [];
-		j = 0;
-		for (var i = 0; i < numberArray.length; i++) {
-			if (parseInt(numberArray[i]) < 0) {
-				negativeArray[j] = parseInt(numberArray[i]);
-				j++;
-			}
+		if (!checkForNegatives(numberArray)) {
+			return sum(numberArray);
 		}
-		if (negativeArray.length > 0) {
-			throw new Error('Negatives not allowed: ' + negativeArray.map(Number));
-		}
-		return sum(numberArray);
+
 	
 	}
 	
@@ -48,16 +40,18 @@ function sum(numberArray) {
 
 function checkForNegatives(numberArray) {
 
-	var negativeNumbers;
-	for (var i = 0; i < numberArray.length; i++) {
-		var j = 0;
-		if (numberArray[i] < 0) {
-			negativeNumbers[j] = numberArray[i];
-			j++;
+	var negativeArray = [];
+		j = 0;
+		for (var i = 0; i < numberArray.length; i++) {
+			if (parseInt(numberArray[i]) < 0) {
+				negativeArray[j] = parseInt(numberArray[i]);
+				j++;
+			}
 		}
-	}
-		throw new Error('Negatives not allowed: ' + negativeNumbers.map(Number));
-		return true;
+		if (negativeArray.length > 0) {
+			throw new Error('Negatives not allowed: ' + negativeArray.map(Number));
+			return false;
+		}
 }
 
 module.exports = Add;
