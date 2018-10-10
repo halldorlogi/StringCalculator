@@ -13,7 +13,7 @@ function Add(numbers) {
 	if (numbers.charAt(0) == "/" && numbers.charAt(1) == "/") {
 		var delimeter = numbers.charAt(2);
 		var numbers = numbers.slice(4, numbers.length);
-		numberArray = numbers.split(delimeter);
+		numberArray = numbers.split(delimeter).join(/[,\n]/);
 	}
 
 	else if (numbers.includes(",") || numbers.includes("\n")) {
@@ -64,7 +64,7 @@ function checkForSize(numberArray) {
 	var j = 0;
 	
 	for (var i = 0; i < numberArray.length; i++) {
-		if (parseInt(numberArray[i]) < 1000) {
+		if (parseInt(numberArray[i]) <= 1000) {
 			validSizeArray[j] = parseInt(numberArray[i]);
 			j++;
 		}

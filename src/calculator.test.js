@@ -62,6 +62,10 @@ it("Should allow a different delimeter and return correct sum", () => {
 	expect(add("//q\n1q2q3")).toBe(6);
 })
 
+it("Does not return 1000", () => {
+	expect(add("1, 1000")).toBe(1);
+})
+
 
 
 
