@@ -8,14 +8,20 @@ function Add(numbers) {
 	}
 
 	if (numbers.includes(",") || numbers.includes("\n")) {
-
+		var validSizeArray = [];
+		var j = 0;
 		var numberArray = numbers.split(/[,\n]/);
-		if (!checkForNegatives(numberArray)) {
-			return sum(numberArray);
+		for (var i = 0; i < numberArray.length; i++) {
+			if (numberArray[i] < 1000) {
+				validSizeArray[j] = numberArray[i];
+				j++;
+			}
+		}
+		if (!checkForNegatives(validSizeArray)) {
+			return sum(validSizeArray);
 		}
 	
 	}
-	
 	else {
 		if (parseInt(numbers) < 0) {
 			throw new Error('Negatives not allowed: ' + parseInt(numbers));
@@ -24,7 +30,6 @@ function Add(numbers) {
 			return parseInt(numbers);
 		}
 	}
-	
 }
 
 function sum(numberArray) {

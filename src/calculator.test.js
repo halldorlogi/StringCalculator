@@ -49,6 +49,16 @@ it('should throw an exception if any number is negative', () => {
 	expect(addNegative).toThrowError(Error);
 })
 
+it("Does not return numbers >= 1000 (two numbers)", () => {
+	expect(add("1, 1001")).toBe(1);
+})
+
+it("Does not return numbers >= 1000 (two or more numbers)", () => {
+	expect(add("1, 1001, 1002, 4")).toBe(5);
+})
+
+
+
 
 
 
