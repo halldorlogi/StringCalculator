@@ -31,8 +31,15 @@ test('should throw an exception if number is negative', () => {
 	}
 	expect(addNegative).toThrowError('Negatives not allowed: -1');
 	expect(addNegative).toThrowError(Error);
+})
 
-});
+test('should throw an exception if numbers are negative', () => {
+	function addNegative() {
+		add("-1, -2");
+	}
+	expect(addNegative).toThrowError('Negatives not allowed: -1,-2');
+	expect(addNegative).toThrowError(Error);
+})
 
 
 
