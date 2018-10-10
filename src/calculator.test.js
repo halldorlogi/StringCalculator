@@ -33,7 +33,7 @@ it('should throw an exception if number is negative', () => {
 	expect(addNegative).toThrowError(Error);
 })
 
-it('should throw an exception if all numbers are negatie', () => {
+it('should throw an exception if all numbers are negative', () => {
 	function addNegative() {
 		add("-1, -2");
 	}
