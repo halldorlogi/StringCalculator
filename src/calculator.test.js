@@ -1,5 +1,6 @@
 const add = require("./calculator");
 
+
 it("should return zero on an empty string", () => {
 	expect(add("")).toBe(0);
 });
@@ -24,11 +25,14 @@ it("should return the sum of two given numbers", () => {
 	expect(add("1\n2, 3")).toBe(6);
 })
 
-it('should throw an exception if number is negative', () => {
-	expect(() => {
+test('should throw an exception if number is negative', () => {
+	function addNegative() {
 		add("-1");
-	}).toThrow();
-})
+	}
+	expect(addNegative).toThrowError('Negatives not allowed: -1');
+	expect(addNegative).toThrowError(Error);
+
+});
 
 
 

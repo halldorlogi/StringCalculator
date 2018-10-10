@@ -1,7 +1,3 @@
-// Negative number error function
-
-function NegativeNumberError() {}
-
 // Add number function
 
 function Add(numbers) {
@@ -19,7 +15,7 @@ function Add(numbers) {
 	
 	else {
 		if (parseInt(numbers) < 0) {
-			throw new NegativeNumberError('Error');
+			throw new Error('Negatives not allowed: ' + parseInt(numbers));
 		}
 		else {
 			return parseInt(numbers);
@@ -28,14 +24,14 @@ function Add(numbers) {
 	
 }
 
-	function sum(numberArray) {
+function sum(numberArray) {
 
-		var total = 0;
-		for (var i = 0; i < numberArray.length; i++) {
+	var total = 0;
+	for (var i = 0; i < numberArray.length; i++) {
 
-			total += parseInt(numberArray[i]);
-		}
-		return total; 
+		total += parseInt(numberArray[i]);
 	}
+	return total; 
+}
 
 module.exports = Add;
