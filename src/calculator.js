@@ -8,23 +8,21 @@ function Add(numbers) {
 	}
 
 	if (numbers.includes(",") || numbers.includes("\n")) {
+
 		var validSizeArray = [];
-		var j = 0;
 		var numberArray = numbers.split(/[,\n]/);
-		for (var i = 0; i < numberArray.length; i++) {
-			if (numberArray[i] < 1000) {
-				validSizeArray[j] = numberArray[i];
-				j++;
-			}
-		}
+		validSizeArray = checkForSize(numberArray);
 		if (!checkForNegatives(validSizeArray)) {
 			return sum(validSizeArray);
 		}
-	
+
 	}
 	else {
 		if (parseInt(numbers) < 0) {
 			throw new Error('Negatives not allowed: ' + parseInt(numbers));
+		}
+		else if (parseInt(numbers) > 1000) {
+			return 0;
 		}
 		else {
 			return parseInt(numbers);
@@ -57,6 +55,18 @@ function checkForNegatives(numberArray) {
 			return true;
 		}
 		return false;
+}
+
+function checkForSize(numberArray) {
+	var validSizeArray = [];
+	var j = 0;
+	for (var i = 0; i < numberArray.length; i++) {
+		if (parseInt(numberArray[i]) < 1000) {
+			validSizeArray[j] = parseInt(numberArray[i]);
+			j++;
+		}
+	}
+	return validSizeArray;
 }
 
 module.exports = Add;
