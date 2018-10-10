@@ -1,3 +1,7 @@
+// Negative number error function
+
+function NegativeNumberError() {}
+
 // Add number function
 
 function Add(numbers) {
@@ -14,8 +18,12 @@ function Add(numbers) {
 	}
 	
 	else {
-
-		return parseInt(numbers);
+		if (parseInt(numbers) < 0) {
+			throw new NegativeNumberError('Error');
+		}
+		else {
+			return parseInt(numbers);
+		}
 	}
 	
 }
@@ -24,6 +32,7 @@ function Add(numbers) {
 
 		var total = 0;
 		for (var i = 0; i < numberArray.length; i++) {
+
 			total += parseInt(numberArray[i]);
 		}
 		return total; 

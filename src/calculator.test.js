@@ -24,6 +24,12 @@ it("should return the sum of two given numbers", () => {
 	expect(add("1\n2, 3")).toBe(6);
 })
 
+it('should throw an exception if number is negative', () => {
+	expect(() => {
+		add("-1");
+	}).toThrow();
+})
+
 
 
 
