@@ -7,16 +7,19 @@ function Add(numbers) {
 		return 0;
 	}
 
-	if (numbers.includes(",") || numbers.includes("\n")) {
-
-		var validSizeArray = [];
-		var numberArray = numbers.split(/[,\n]/);
-		validSizeArray = checkForSize(numberArray);
-		if (!checkForNegatives(validSizeArray)) {
-			return sum(validSizeArray);
-		}
-
+	var numberArray = []
+	var validSizeArray = [];
+	if (numbers.charAt(0) == "/" && numbers.charAt(1) == "/") {
+		var delimeter = numbers.charAt(2);
+		var numbers = numbers.slice(4, numbers.length);
+		numberArray = numbers.split(delimeter);
+		
 	}
+
+	else if (numbers.includes(",") || numbers.includes("\n")) {
+		numberArray = numbers.split(/[,\n]/);
+	}
+
 	else {
 		if (parseInt(numbers) < 0) {
 			throw new Error('Negatives not allowed: ' + parseInt(numbers));
@@ -28,16 +31,13 @@ function Add(numbers) {
 			return parseInt(numbers);
 		}
 	}
-}
-
-function sum(numberArray) {
-
-	var total = 0;
-	for (var i = 0; i < numberArray.length; i++) {
-
-		total += parseInt(numberArray[i]);
+	
+	validSizeArray = checkForSize(numberArray);
+	if (!checkForNegatives(validSizeArray)) {
+		return sum(validSizeArray);
 	}
-	return total; 
+
+
 }
 
 function checkForNegatives(numberArray) {
@@ -67,6 +67,15 @@ function checkForSize(numberArray) {
 		}
 	}
 	return validSizeArray;
+}
+
+function sum(array) {
+
+	var sum = 0; 
+	for (var i = 0; i < array.length; i++) {
+		sum += parseInt(array[i]);
+	}
+	return sum;
 }
 
 module.exports = Add;
