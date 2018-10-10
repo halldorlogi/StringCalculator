@@ -30,7 +30,6 @@ it('should throw an exception if number is negative', () => {
 		add("-1");
 	}
 	expect(addNegative).toThrowError('Negatives not allowed: -1');
-	expect(addNegative).toThrowError(Error);
 })
 
 it('should throw an exception if all numbers are negative', () => {
@@ -38,7 +37,6 @@ it('should throw an exception if all numbers are negative', () => {
 		add("-1, -2");
 	}
 	expect(addNegative).toThrowError('Negatives not allowed: -1,-2');
-	expect(addNegative).toThrowError(Error);
 })
 
 it('should throw an exception if any number is negative', () => {
@@ -46,7 +44,6 @@ it('should throw an exception if any number is negative', () => {
 		add("-1, 1, -2, 2, -5");
 	}
 	expect(addNegative).toThrowError('Negatives not allowed: -1,-2,-5');
-	expect(addNegative).toThrowError(Error);
 })
 
 it("Should return empty if number is >= 1000 (one number)", () => {
