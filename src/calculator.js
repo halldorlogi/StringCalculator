@@ -25,7 +25,7 @@ function Add(numbers) {
 		numberArray = numbers.split(/[,\n]/);
 	}
 
-	// If only one number
+	// If only one number is added
 	else {
 		// If number is negative
 		if (parseInt(numbers) < 0) {
