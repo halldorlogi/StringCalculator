@@ -13,7 +13,6 @@ function Add(numbers) {
 		if (!checkForNegatives(numberArray)) {
 			return sum(numberArray);
 		}
-
 	
 	}
 	
@@ -50,8 +49,9 @@ function checkForNegatives(numberArray) {
 		}
 		if (negativeArray.length > 0) {
 			throw new Error('Negatives not allowed: ' + negativeArray.map(Number));
-			return false;
+			return true;
 		}
+		return false;
 }
 
 module.exports = Add;
