@@ -18,5 +18,8 @@
   "homepage": "https://github.com/halldorlogi/StringCalculator#readme",
   "devDependencies": {
     "jest": "^23.6.0"
+  },
+  "dependencies": {
+    "jslint": "^0.12.0"
   }
 }
